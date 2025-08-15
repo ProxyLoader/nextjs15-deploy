@@ -6,9 +6,8 @@ import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Brother TS ft. Dysle | The original food",
+  description: "Welcome to our website here you can find the menu what to eat.",
 }
 
 const inter = Inter({
