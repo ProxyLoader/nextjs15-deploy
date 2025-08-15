@@ -222,7 +222,7 @@ export default function RestaurantApp() {
     </div>
     <div className="flex items-center gap-3">
       <span className="text-orange-400 text-lg">🕒</span>
-      <span>Ouvert: 11h - 22h (tous les jours)</span>
+      <span>Ouvert: 11h - 02h (tous les jours)</span>
     </div>
   </div>
 </div>
