@@ -6,10 +6,22 @@ import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Brother TS ft. Dysle | The original food",
-  description: "Welcome to our website here you can find the menu what to eat.",
+  title: "Brother TS | The Original Food",
+  description: "Welcome to our website — here you can find the menu and decide what to eat.",
+  openGraph: {
+    title: "Brother TS | The Original Food",
+    description: "Welcome to our website — here you can find the menu and decide what to eat.",
+    images: ["/brother-logo.png"],
+  },
+  twitter: {
+    card: "summary",
+    title: "Brother TS | The Original Food",
+    description: "Welcome to our website — here you can find the menu and decide what to eat.",
+    images: ["/brother-logo.png"],
+  },
   icons: {
     icon: "/brother-logo.png",
+    apple: "/brother-logo.png",
   },
 }
 
@@ -28,14 +40,9 @@ const poppins = Poppins({
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${poppins.variable} antialiased`}
-    >
+    <html lang="en" className={`${inter.variable} ${poppins.variable} antialiased`}>
       <head>
         <style>{`
           html {
@@ -45,32 +52,26 @@ export default function RootLayout({
           }
         `}</style>
 
-        {/* Initial favicon */}
-        <link
-          id="dynamic-favicon"
-          rel="icon"
-          href="/brother-logo.png"
-          type="image/png"
-        />
-        <link rel="apple-touch-icon" href="/brother-logo.png" />
+        {/* Dynamic favicon */}
+        <link id="dynamic-favicon" rel="icon" href="/brother-logo.png" type="image/png" />
 
-        {/* Script to change favicon & title every 2.5 seconds */}
+        {/* Runtime script to swap title & favicon */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const icons = [
-                  { src: "/brother-logo.png", title: "Brother TS | The Original Food" },
-                  { src: "/disley.svg", title: "Dysley | The Original Food" }
+                const items = [
+                  { icon: "/brother-logo.png", title: "Brother TS | The Original Food" },
+                  { icon: "/disley.svg", title: "Dysley | The Original Food" }
                 ];
-                let index = 0;
+                let i = 0;
                 setInterval(() => {
-                  index = (index + 1) % icons.length;
+                  i = (i + 1) % items.length;
                   const link = document.getElementById("dynamic-favicon");
-                  if (link) {
-                    link.href = icons[index].src;
-                  }
-                  document.title = icons[index].title;
+                  if (link) link.href = items[i].icon;
+                  document.title = items[i].title;
+                  const metaDesc = document.querySelector('meta[name="description"]');
+                  if (metaDesc) metaDesc.setAttribute("content", items[i].title);
                 }, 2500);
               })();
             `,
