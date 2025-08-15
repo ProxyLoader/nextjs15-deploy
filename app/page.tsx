@@ -202,20 +202,31 @@ export default function RestaurantApp() {
   {isLogoName}
 </div>
 
-            <div className="bg-gradient-to-r from-gray-800 to-gray-900 px-3 py-3 sm:px-4 sm:py-4 rounded-lg text-white border border-gray-700/50 shadow-lg">
-              <div className="font-serif font-semibold mb-2 text-orange-400 text-base sm:text-lg">Contact & Infos</div>
-              <div className="text-xs sm:text-sm space-y-1 text-gray-300 font-medium">
-                <div className="flex items-center gap-2">
-                  <span className="text-orange-400">📱</span>0791 990 280▪️0793 17 36 33 📞07 70860127
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-orange-400">📍</span> P682+J8H, Bab Ezzouar
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-orange-400">🕒</span> Ouvert: 11h - 22h tous les jours
-                </div>
-              </div>
-            </div>
+
+<div className="bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-4 sm:px-6 sm:py-5 rounded-xl text-white border border-gray-700/50 shadow-lg">
+  <h2 className="font-serif font-semibold mb-3 text-orange-400 text-lg sm:text-xl">
+    Contact & Infos
+  </h2>
+  <div className="text-sm sm:text-base space-y-2 text-gray-300 font-medium">
+    <div className="flex items-center gap-3">
+      <span className="text-orange-400 text-lg">📱</span>
+      <span>
+        0791&nbsp;990&nbsp;280 · 0793&nbsp;17&nbsp;36&nbsp;33
+        <br />
+        📞 07&nbsp;70&nbsp;86&nbsp;01&nbsp;27
+      </span>
+    </div>
+    <div className="flex items-center gap-3">
+      <span className="text-orange-400 text-lg">📍</span>
+      <span>P682+J8H, Bab Ezzouar</span>
+    </div>
+    <div className="flex items-center gap-3">
+      <span className="text-orange-400 text-lg">🕒</span>
+      <span>Ouvert: 11h - 22h (tous les jours)</span>
+    </div>
+  </div>
+</div>
+
           </div>
         </div>
 
