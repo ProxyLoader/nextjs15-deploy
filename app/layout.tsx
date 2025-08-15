@@ -44,8 +44,29 @@ export default function RootLayout({
             --font-mono: ${GeistMono.variable};
           }
         `}</style>
-        <link rel="icon" href="/brother-logo.png" type="image/png" />
+
+        {/* Initial favicon */}
+        <link id="dynamic-favicon" rel="icon" href="/brother-logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/brother-logo.png" />
+
+        {/* Script to change favicon every 2.5 seconds */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const icons = ["/brother-logo.png", "/disley.svg"];
+                let index = 0;
+                setInterval(() => {
+                  index = (index + 1) % icons.length;
+                  const link = document.getElementById("dynamic-favicon");
+                  if (link) {
+                    link.href = icons[index];
+                  }
+                }, 2500);
+              })();
+            `,
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>
