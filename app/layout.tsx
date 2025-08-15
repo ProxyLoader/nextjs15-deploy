@@ -8,6 +8,9 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Brother TS ft. Dysle | The original food",
   description: "Welcome to our website here you can find the menu what to eat.",
+  icons: {
+    icon: "/brother-logo.png",
+  },
 }
 
 const inter = Inter({
@@ -29,15 +32,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} antialiased`}
+    >
       <head>
         <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
+          html {
+            font-family: ${GeistSans.style.fontFamily};
+            --font-sans: ${GeistSans.variable};
+            --font-mono: ${GeistMono.variable};
+          }
         `}</style>
+        <link rel="icon" href="/brother-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/brother-logo.png" />
       </head>
       <body>{children}</body>
     </html>
